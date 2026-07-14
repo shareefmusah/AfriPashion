@@ -1,0 +1,205 @@
+/* ==========================================
+   Navbar Styles
+   ========================================== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  transition: background var(--transition-normal), backdrop-filter var(--transition-normal), box-shadow var(--transition-normal);
+  background: transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(13, 13, 13, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(212, 160, 23, 0.15), var(--shadow-sm);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  width: 100%;
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.navbar__needle-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.navbar__brand {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-off-white);
+  letter-spacing: -0.01em;
+}
+
+.navbar__sub {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-top: 2px;
+}
+
+/* Desktop Links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-left: auto;
+}
+
+.navbar__link {
+  position: relative;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-grey-light);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  transform: scaleX(0);
+  transition: transform var(--transition-normal);
+}
+
+.navbar__link:hover {
+  color: var(--color-off-white);
+}
+
+.navbar__link.active {
+  color: var(--color-gold);
+}
+
+.navbar__link.active::after,
+.navbar__link:hover::after {
+  transform: scaleX(1);
+}
+
+/* CTA Button */
+.navbar__cta {
+  flex-shrink: 0;
+  padding: 10px 24px;
+  font-size: 0.875rem;
+}
+
+/* Hamburger */
+.navbar__hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  color: var(--color-off-white);
+  background: rgba(255,255,255,0.05);
+  transition: background var(--transition-fast), color var(--transition-fast);
+  margin-left: auto;
+}
+
+.navbar__hamburger:hover {
+  background: rgba(212,160,23,0.15);
+  color: var(--color-gold);
+}
+
+/* Mobile Menu */
+.navbar__mobile {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background: rgba(13,13,13,0.97);
+  backdrop-filter: blur(20px);
+  padding: var(--space-lg) var(--space-lg) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-110%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
+  border-bottom: 1px solid rgba(212, 160, 23, 0.2);
+}
+
+.navbar__mobile.open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.navbar__mobile ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.navbar__mobile-link {
+  display: block;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-grey-light);
+  border-radius: var(--radius-md);
+  border-left: 3px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.navbar__mobile-link:hover,
+.navbar__mobile-link.active {
+  color: var(--color-gold);
+  background: rgba(212,160,23,0.08);
+  border-left-color: var(--color-gold);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .navbar__links,
+  .navbar__cta.btn {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+}
+
+@media (min-width: 901px) {
+  .navbar__mobile {
+    display: none !important;
+  }
+}
