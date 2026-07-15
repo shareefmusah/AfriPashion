@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react'
 import './TestimonialSlider.css'
 
@@ -36,15 +36,18 @@ const testimonials = [
 export default function TestimonialSlider() {
   const [current, setCurrent] = useState(0)
   const [animating, setAnimating] = useState(false)
+  const animatingRef = useRef(false)
 
   const go = useCallback((dir) => {
-    if (animating) return
+    if (animatingRef.current) return
+    animatingRef.current = true
     setAnimating(true)
     setTimeout(() => {
       setCurrent(c => (c + dir + testimonials.length) % testimonials.length)
+      animatingRef.current = false
       setAnimating(false)
     }, 300)
-  }, [animating])
+  }, [])
 
   useEffect(() => {
     const id = setInterval(() => go(1), 5000)

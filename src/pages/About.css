@@ -185,8 +185,17 @@
     grid-template-columns: 1fr;
     gap: var(--space-xl);
   }
-  .about-story__img img { height: 320px; }
-  .about-story__stats { gap: var(--space-lg); }
+  .about-story__img img { height: 280px; }
+  .about-story__stats {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+  .about-story__stat {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+  .about-story__stat-num { font-size: 1.5rem; }
 }
 
 @media (max-width: 600px) {

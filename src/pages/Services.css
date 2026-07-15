@@ -13,12 +13,12 @@
   align-items: center;
 }
 
-.service-detail--reverse {
-  direction: rtl;
+.service-detail--reverse .service-detail__img-side {
+  order: 2;
 }
 
-.service-detail--reverse > * {
-  direction: ltr;
+.service-detail--reverse .service-detail__content {
+  order: 1;
 }
 
 /* Image Side */
@@ -136,7 +136,12 @@
     grid-template-columns: 1fr;
     gap: var(--space-xl);
   }
-  .service-detail--reverse { direction: ltr; }
+  .service-detail--reverse .service-detail__img-side {
+    order: 0;
+  }
+  .service-detail--reverse .service-detail__content {
+    order: 0;
+  }
   .service-detail__img-wrap img,
   .service-detail__no-img { height: 280px; }
 }

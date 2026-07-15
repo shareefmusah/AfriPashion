@@ -118,8 +118,10 @@
     grid-template-columns: 1fr;
     gap: var(--space-xl);
   }
-  .about-snippet__img-wrap img { height: 350px; }
+  .about-snippet__img-wrap img { height: 300px; }
   .about-snippet__features { grid-template-columns: 1fr; }
+  .about-snippet__badge { bottom: var(--space-md); right: var(--space-md); padding: var(--space-sm) var(--space-md); }
+  .about-snippet__badge-num { font-size: 1.5rem; }
 }
 
 @media (max-width: 600px) {

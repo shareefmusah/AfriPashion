@@ -415,8 +415,14 @@ p {
 @media (max-width: 768px) {
   .section { padding: 64px 0; }
   .container { padding: 0 var(--space-md); }
+  .page-hero { padding: 80px 0 48px; }
+  .page-hero__sub { font-size: 1rem; }
+  .section-subtitle { font-size: 0.95rem; }
+  .section-label { font-size: 0.7rem; }
+  .section-label::before { width: 24px; }
 }
 
 @media (max-width: 480px) {
   .section { padding: 48px 0; }
+  .page-hero { padding: 72px 0 40px; }
 }
