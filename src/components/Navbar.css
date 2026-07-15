@@ -27,6 +27,7 @@
   align-items: center;
   gap: var(--space-xl);
   width: 100%;
+  justify-content: space-between;
 }
 
 /* Logo */
@@ -201,5 +202,35 @@
 @media (min-width: 901px) {
   .navbar__mobile {
     display: none !important;
+  }
+}
+
+/* iPhone 7 / small screens (375px and smaller) */
+@media (max-width: 380px) {
+  .navbar__needle-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .navbar__brand {
+    font-size: 0.9rem;
+  }
+  .navbar__sub {
+    font-size: 0.5rem;
+  }
+  .navbar__inner {
+    gap: 6px;
+  }
+  .navbar__hamburger {
+    width: 34px;
+    height: 34px;
+  }
+  .navbar {
+    height: 62px;
+  }
+  .navbar__mobile {
+    top: 62px;
+  }
+  .navbar__logo {
+    gap: 6px;
   }
 }
