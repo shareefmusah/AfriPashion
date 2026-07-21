@@ -11,14 +11,14 @@ import heroBg from '../assets/images/hero_background.png'
 import './Gallery.css'
 
 const galleryItems = [
-  { id: 1, src: serviceMens,       category: "mens",       title: "Custom Men's Suit",             desc: "Bespoke charcoal suit with gold embroidery"   },
-  { id: 2, src: serviceWomens,     category: "womens",     title: "Ankara Evening Gown",           desc: "Floor-length couture gown in kente fabric"    },
-  { id: 3, src: serviceTraditional,category: "traditional",title: "Northern Ghanaian Smock",       desc: "Authentic Fugu smock with intricate patterns" },
-  { id: 4, src: serviceAlterations,category: "mens",       title: "Tailoring Detail",              desc: "Precision stitching and finishing work"       },
-  { id: 5, src: aboutImg,          category: "traditional",title: "Artisan at Work",               desc: "Our master tailor crafting a garment"         },
-  { id: 6, src: heroBg,            category: "studio",     title: "The AfriPashion Studio",       desc: "Our workshop in Choggu Yelpasi, Tamale"       },
-  { id: 7, src: serviceMens,       category: "mens",       title: "Wedding Attire",                desc: "Bespoke wedding suit crafted with care"       },
-  { id: 8, src: serviceWomens,     category: "womens",     title: "Women's Corporate Wear",        desc: "Professional and elegant office attire"       },
+  { id: 1, src: serviceMens, category: "mens", title: "Custom Men's Suit", desc: "Bespoke charcoal suit with gold embroidery" },
+  { id: 2, src: serviceWomens, category: "womens", title: "Ankara Evening Gown", desc: "Floor-length couture gown in kente fabric" },
+  { id: 3, src: serviceTraditional, category: "traditional", title: "Northern Ghanaian Smock", desc: "Authentic Fugu smock with intricate patterns" },
+  { id: 4, src: serviceAlterations, category: "mens", title: "Tailoring Detail", desc: "Precision stitching and finishing work" },
+  { id: 5, src: aboutImg, category: "traditional", title: "Artisan at Work", desc: "Our master tailor crafting a garment" },
+  { id: 6, src: heroBg, category: "studio", title: "The AfriPashion Studio", desc: "Our workshop in Choggu Yelpasi, Tamale" },
+  { id: 7, src: serviceMens, category: "mens", title: "Wedding Attire", desc: "Bespoke wedding suit crafted with care" },
+  { id: 8, src: serviceWomens, category: "womens", title: "Women's Corporate Wear", desc: "Professional and elegant office attire" },
 ]
 
 const filters = ['all', 'mens', 'womens', 'traditional', 'studio']
@@ -41,13 +41,14 @@ export default function Gallery() {
 
   useEffect(() => {
     const handler = (e) => {
+      if (!lightbox) return
       if (e.key === 'Escape') closeLightbox()
       if (e.key === 'ArrowRight') navigate(1)
       if (e.key === 'ArrowLeft') navigate(-1)
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [navigate])
+  }, [navigate, lightbox])
 
   useEffect(() => {
     document.body.style.overflow = lightbox ? 'hidden' : ''

@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Shirt, Gem, Star, Scissors, Briefcase, ArrowRight } from 'lucide-react'
 import CTABanner from '../components/CTABanner'
+import useReveal from '../hooks/useReveal'
 
 import serviceMens from '../assets/images/service_mens.png'
 import serviceWomens from '../assets/images/service_womens.png'
@@ -9,17 +9,6 @@ import serviceTraditional from '../assets/images/service_traditional.png'
 import serviceAlterations from '../assets/images/service_alterations.png'
 
 import './Services.css'
-
-function useReveal() {
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target) } }),
-      { threshold: 0.12 }
-    )
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el))
-    return () => obs.disconnect()
-  }, [])
-}
 
 const services = [
   {

@@ -70,7 +70,23 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
+  }
+
+  .cta-banner__actions .btn {
+    flex: 1 1 200px;
+    justify-content: center;
   }
 
   .cta-banner__text p { margin: 0 auto; }
+}
+
+@media (max-width: 480px) {
+  .cta-banner__actions {
+    flex-direction: column;
+  }
+  .cta-banner__actions .btn {
+    width: 100%;
+    flex: none;
+  }
 }

@@ -93,7 +93,16 @@ export default function TestimonialSlider() {
               aria-selected={i === current}
               aria-label={`Testimonial ${i + 1}`}
               className={`testimonial-slider__dot ${i === current ? 'active' : ''}`}
-              onClick={() => { if (!animating) { setAnimating(true); setTimeout(() => { setCurrent(i); setAnimating(false) }, 300) } }}
+              onClick={() => {
+                if (animatingRef.current) return
+                animatingRef.current = true
+                setAnimating(true)
+                setTimeout(() => {
+                  setCurrent(i)
+                  animatingRef.current = false
+                  setAnimating(false)
+                }, 300)
+              }}
               id={`testimonial-dot-${i}`}
             />
           ))}

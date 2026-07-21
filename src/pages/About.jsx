@@ -1,31 +1,20 @@
-import { useEffect } from 'react'
 import { Award, Heart, Target, Users } from 'lucide-react'
 import CTABanner from '../components/CTABanner'
+import useReveal from '../hooks/useReveal'
 import aboutImg from '../assets/images/about_tailor.png'
 import './About.css'
 
-function useReveal() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } }),
-      { threshold: 0.12 }
-    )
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-}
-
 const values = [
-  { icon: Heart,  title: 'Passion',       desc: 'Every garment is sewn with love for the craft and dedication to making you look your absolute best.' },
-  { icon: Award,  title: 'Excellence',    desc: 'We hold ourselves to the highest standards of quality — from fabric selection to the final stitch.' },
-  { icon: Target, title: 'Precision',     desc: 'Measurements matter. We ensure every garment fits perfectly, tailored to your unique body and style.' },
-  { icon: Users,  title: 'Community',     desc: 'We are proud to serve the people of Tamale and contribute to the growth of the local fashion industry.' },
+  { icon: Heart, title: 'Passion', desc: 'Every garment is sewn with love for the craft and dedication to making you look your absolute best.' },
+  { icon: Award, title: 'Excellence', desc: 'We hold ourselves to the highest standards of quality — from fabric selection to the final stitch.' },
+  { icon: Target, title: 'Precision', desc: 'Measurements matter. We ensure every garment fits perfectly, tailored to your unique body and style.' },
+  { icon: Users, title: 'Community', desc: 'We are proud to serve the people of Tamale and contribute to the growth of the local fashion industry.' },
 ]
 
 const team = [
-  { name: 'The Master Tailor',    role: 'Founder & Lead Designer',  initial: 'A' },
-  { name: 'Cutting Specialist',   role: 'Pattern & Cutting Expert', initial: 'F' },
-  { name: 'Embroidery Artist',    role: 'Embroidery & Finishing',   initial: 'M' },
+  { name: 'The Master Tailor', role: 'Founder & Lead Designer', initial: 'A' },
+  { name: 'Cutting Specialist', role: 'Pattern & Cutting Expert', initial: 'F' },
+  { name: 'Embroidery Artist', role: 'Embroidery & Finishing', initial: 'M' },
 ]
 
 export default function About() {

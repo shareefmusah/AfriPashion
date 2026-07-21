@@ -3,7 +3,7 @@
    ============================================ */
 
 /* --- Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Fonts are loaded via <link> tags in index.html — no @import needed here */
 
 /* --- Design Tokens --- */
 :root {
@@ -126,10 +126,12 @@ button {
 
 .section {
   padding: var(--space-3xl) 0;
+  scroll-margin-top: var(--nav-height);
 }
 
 .section--alt {
   background-color: var(--color-charcoal);
+  scroll-margin-top: var(--nav-height);
 }
 
 /* --- Typography --- */
@@ -313,8 +315,8 @@ p {
 }
 
 @keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(212,160,23,0.4); }
-  50%       { box-shadow: 0 0 0 12px rgba(212,160,23,0); }
+  0%, 100% { box-shadow: 0 4px 20px rgba(212,160,23,0.4); }
+  50%       { box-shadow: 0 8px 30px rgba(212,160,23,0.6); }
 }
 
 @keyframes threadDraw {
@@ -424,13 +426,22 @@ p {
   .section { padding: 64px 0; }
   .container { padding: 0 var(--space-md); }
   .page-hero { padding: 80px 0 48px; }
-  .page-hero__sub { font-size: 1rem; }
+  .page-hero__sub { font-size: 1rem; max-width: 100%; }
   .section-subtitle { font-size: 0.95rem; }
   .section-label { font-size: 0.7rem; }
   .section-label::before { width: 24px; }
+  .btn { padding: 12px 24px; font-size: 0.875rem; }
 }
 
 @media (max-width: 480px) {
   .section { padding: 48px 0; }
+  .container { padding: 0 12px; }
   .page-hero { padding: 72px 0 40px; }
+  h1 { font-size: clamp(2rem, 8vw, 2.5rem); }
+  h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
+}
+
+@media (max-width: 360px) {
+  .container { padding: 0 10px; }
+  .btn { padding: 10px 18px; font-size: 0.825rem; }
 }

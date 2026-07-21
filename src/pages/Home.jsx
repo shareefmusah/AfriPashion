@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Scissors, Shirt, Star, ArrowRight, Gem } from 'lucide-react'
 import HeroSection from '../components/HeroSection'
 import ServiceCard from '../components/ServiceCard'
 import TestimonialSlider from '../components/TestimonialSlider'
 import CTABanner from '../components/CTABanner'
+import useReveal from '../hooks/useReveal'
 
 import serviceMens from '../assets/images/service_mens.png'
 import serviceWomens from '../assets/images/service_womens.png'
@@ -14,24 +14,11 @@ import aboutImg from '../assets/images/about_tailor.png'
 
 import './Home.css'
 
-function useReveal() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) }
-      }),
-      { threshold: 0.15 }
-    )
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-}
-
 const services = [
-  { icon: Shirt,   title: "Men's Custom Tailoring",    description: "From sleek suits to traditional smocks — every garment is cut and sewn to your exact measurements.",  image: serviceMens },
-  { icon: Gem,     title: "Women's Fashion & Gowns",   description: "Elegant gowns, ankara dresses, and modern African couture that celebrates the African woman.",           image: serviceWomens },
-  { icon: Star,    title: "Traditional African Wear",  description: "Authentic Northern Ghanaian smocks, kente styles, and cultural wear made with pride and precision.",     image: serviceTraditional },
-  { icon: Scissors,title: "Alterations & Repairs",    description: "Give your favourite clothes a second life with our expert alteration and repair services.",               image: serviceAlterations },
+  { icon: Shirt, title: "Men's Custom Tailoring", description: "From sleek suits to traditional smocks — every garment is cut and sewn to your exact measurements.", image: serviceMens },
+  { icon: Gem, title: "Women's Fashion & Gowns", description: "Elegant gowns, ankara dresses, and modern African couture that celebrates the African woman.", image: serviceWomens },
+  { icon: Star, title: "Traditional African Wear", description: "Authentic Northern Ghanaian smocks, kente styles, and cultural wear made with pride and precision.", image: serviceTraditional },
+  { icon: Scissors, title: "Alterations & Repairs", description: "Give your favourite clothes a second life with our expert alteration and repair services.", image: serviceAlterations },
 ]
 
 export default function Home() {

@@ -63,7 +63,7 @@ export default function HeroSection() {
 
         <h1 className="hero__title">
           <span className="hero__title-line">Crafted with</span>
-          <span className="hero__title-line hero__title-gold">Passion &amp;</span>
+          <span className="hero__title-line hero__title-gold">Passion &</span>
           <span className="hero__title-line">Precision.</span>
         </h1>
 
