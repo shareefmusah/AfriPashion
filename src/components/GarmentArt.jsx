@@ -33,20 +33,23 @@ export function JacketArt({ stroke = "#F3ECE0", className = "" }) {
   );
 }
 
-// Real fashion image placeholders using Unsplash
+// Local image assets replaced as requested
 const FASHION_IMAGES = {
-  kaftan:
-    "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&q=80&auto=format&fit=crop",
-  jacket:
-    "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=600&q=80&auto=format&fit=crop",
-  collectionHero:
-    "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=1200&q=80&auto=format&fit=crop",
-  atelier:
-    "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80&auto=format&fit=crop",
-  fabric:
-    "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=800&q=80&auto=format&fit=crop",
-  craftDetail:
-    "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=800&q=80&auto=format&fit=crop",
+  heroVideo: "/tailor3.png",
+  kaftan: "/tailor1.jpg",
+  jacket: "/tailor2.jpg",
+  collectionHero: "/tailor3.png",
+  atelier: "/tailor1.jpg",
+  fabric: "/african wear.jpg",
+  craftDetail: "/african wear1.jpg",
+  processDetail: "/african wear3.jpg",
+  contactAtelier: "/tailor2.jpg",
+  tailor1: "/tailor1.jpg",
+  tailor2: "/tailor2.jpg",
+  tailor3: "/tailor3.png",
+  africanWear: "/african wear.jpg",
+  africanWear1: "/african wear1.jpg",
+  africanWear3: "/african wear3.jpg",
 };
 
 export function GarmentImage({ src, alt = "", className = "" }) {

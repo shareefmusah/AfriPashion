@@ -38,21 +38,21 @@ export default function Home() {
         <div className="absolute inset-0 bg-ink">
           <div className="absolute inset-0">
             <img
-              src={FASHION_IMAGES.collectionHero}
-              alt="Elegant fashion"
-              className="w-full h-full object-cover opacity-30"
+              src="/tailor3.png"
+              alt="AfriPashion Atelier"
+              className="w-full h-full object-cover opacity-20 filter blur-sm"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/95 to-ink/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/95 to-ink/75" />
           </div>
         </div>
 
-        <div className="relative w-full grid md:grid-cols-2 min-h-screen">
+        <div className="relative w-full grid md:grid-cols-2 min-h-screen items-center">
           {/* Left: Text content */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="flex flex-col justify-center px-6 sm:px-12 lg:px-16 py-20 md:py-0 order-2 md:order-1"
+            className="flex flex-col justify-center px-6 sm:px-12 lg:px-16 py-24 md:py-0 order-2 md:order-1 z-10"
           >
             <motion.span
               initial={{ opacity: 0, y: 20 }}
@@ -93,7 +93,7 @@ export default function Home() {
             >
               <a
                 href="tel:+233504000344"
-                className="font-mono text-xs uppercase tracking-widest px-7 py-3.5 rounded-full bg-brass text-ink hover:bg-brassSoft transition-all duration-300 btn-glow"
+                className="font-mono text-xs uppercase tracking-widest px-7 py-3.5 rounded-full bg-brass text-ink hover:bg-brassSoft transition-all duration-300 btn-glow font-bold"
               >
                 Book a fitting
               </a>
@@ -114,29 +114,48 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Visual panel with real image */}
+          {/* Right: Looping video visual using tailor3.png */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="relative overflow-hidden order-1 md:order-2 min-h-[50vh] md:min-h-screen"
+            className="relative order-1 md:order-2 h-[60vh] md:h-screen flex items-center justify-center p-4 sm:p-8"
           >
-            <img
-              src={FASHION_IMAGES.kaftan}
-              alt="Elegant kaftan fashion"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
+            <div className="relative w-full h-full max-h-[85vh] rounded-3xl overflow-hidden shadow-2xl border border-brass/30 group">
+              {/* Continuous Looping Motion Visual for tailor3.png */}
+              <motion.img
+                src="/tailor3.png"
+                alt="AfriPashion Tailoring presentation"
+                className="w-full h-full object-cover object-top"
+                animate={{
+                  scale: [1, 1.08, 1],
+                  y: [0, -12, 0],
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "easeInOut",
+                }}
+              />
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="absolute bottom-6 left-6 font-mono text-[11px] uppercase tracking-widest text-cream/80"
-            >
-              <span className="pulse-dot inline-block mr-2 align-middle" />
-              Choggu Yelpasi · Tamale
-            </motion.div>
+              {/* Video Overlay Vignette & Lighting */}
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/20 pointer-events-none" />
+
+              {/* Bottom Caption & Player Details */}
+              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-ink/80 backdrop-blur-md border border-brass/20 flex items-center justify-between text-cream">
+                <div>
+                  <div className="font-display text-base text-cream">Choggu Yelpasi Atelier</div>
+                  <div className="font-mono text-[10px] uppercase tracking-widest text-brassSoft">
+                    Tamale, Ghana • Bespoke Craft
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 font-mono text-[10px] px-2.5 py-1 rounded bg-brass/20 text-brassSoft border border-brass/30">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brass animate-pulse"></span>
+                  HD LOOP
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -166,28 +185,38 @@ export default function Home() {
         </div>
       </AnimatedSection>
 
-      {/* Featured Images Strip */}
+      {/* Featured Images Strip showcasing all user images */}
       <AnimatedSection className="py-0 bg-ink">
-        <div className="grid grid-cols-2 md:grid-cols-4">
-          {[FASHION_IMAGES.kaftan, FASHION_IMAGES.jacket, FASHION_IMAGES.fabric, FASHION_IMAGES.atelier].map(
-            (img, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="relative aspect-[3/4] overflow-hidden"
-              >
-                <img
-                  src={img}
-                  alt=""
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-ink/20 hover:bg-ink/10 transition-colors" />
-              </motion.div>
-            )
-          )}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+          {[
+            { src: "/tailor1.jpg", label: "Master Cut" },
+            { src: "/tailor2.jpg", label: "Precision Fit" },
+            { src: "/tailor3.png", label: "Signature Style" },
+            { src: "/african wear.jpg", label: "Heritage Fabric" },
+            { src: "/african wear1.jpg", label: "Modern Silhouette" },
+            { src: "/african wear3.jpg", label: "African Elegance" },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08, duration: 0.6 }}
+              className="relative aspect-[3/4] overflow-hidden group"
+            >
+              <img
+                src={item.src}
+                alt={item.label}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+              <div className="absolute bottom-3 left-3 right-3 text-center">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-cream/90 bg-ink/70 px-2 py-1 rounded backdrop-blur-sm border border-brass/20">
+                  {item.label}
+                </span>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </AnimatedSection>
 
